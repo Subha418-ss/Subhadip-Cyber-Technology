@@ -1,150 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Under Construction | Subhadip Cyber Technology</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhadip Cyber Technology | Premium</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-cyan: #00f2fe;
+            --accent-purple: #7000ff;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        /* Animated Background Glows */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.15), transparent);
+            z-index: -1;
+        }
 
-html, body {
-  width: 100%;
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-}
+        /* Logo Styling */
+        .logo-wrapper {
+            margin-top: 60px;
+            position: relative;
+            padding: 10px;
+        }
 
-/* Background */
-.background-container {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-}
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            animation: pulse 3s infinite;
+        }
 
-.background-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+        .logo-circle img {
+            width: 90%;
+            height: 90%;
+            background: var(--bg-dark);
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(3px);
-}
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--text-dim));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0 40px;
+            letter-spacing: -0.5px;
+        }
 
-/* Center Content */
-.content-wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+        .container {
+            width: 90%;
+            max-width: 400px;
+        }
 
-/* Glass Card */
-.glass-card {
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 22px;
-  padding: 40px 25px;
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  transform: rotateX(8deg);
-}
+        /* 3D Glassmorphism Cards */
+        .box {
+            position: relative;
+            background: var(--card-bg);
+            margin-bottom: 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
 
-/* Text */
-h1 {
-  font-size: 2.6rem;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: 1.5px;
-  margin-bottom: 18px;
-}
+        .box::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: 0.5s;
+        }
 
-.highlight {
-  color: #ffd700;
-  text-shadow: 0 0 12px rgba(255,215,0,0.6);
-}
+        .box:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
-p {
-  font-size: 1.05rem;
-  opacity: 0.9;
-  margin-bottom: 25px;
-}
+        .box:hover::after {
+            left: 100%;
+        }
 
-/* Status Dot */
-.status-dot {
-  width: 12px;
-  height: 12px;
-  background: #00ff88;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-  box-shadow: 0 0 10px #00ff88;
-  animation: pulse 1.4s infinite;
-}
+        .box a {
+            display: block;
+            padding: 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+        }
 
-@keyframes pulse {
-  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0,255,136,0.6); }
-  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(0,255,136,0); }
-  100% { transform: scale(0.9); }
-}
+        /* The 'Call to Action' button */
+        .box.featured {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border: none;
+        }
 
-/* Footer */
-.brand-footer {
-  border-top: 1px solid rgba(255,255,255,0.25);
-  padding-top: 18px;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+        .box.featured:hover {
+            box-shadow: 0 0 25px rgba(112, 0, 255, 0.4);
+        }
 
-/* 🔥 Mobile Optimization */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
+        .sub-text {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            margin-top: 4px;
+        }
 
-  p {
-    font-size: 0.95rem;
-  }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(0, 242, 254, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(0, 242, 254, 0.4); }
+            100% { box-shadow: 0 0 20px rgba(0, 242, 254, 0.2); }
+        }
 
-  .glass-card {
-    padding: 30px 20px;
-    transform: none; /* mobile-এ flat better */
-  }
-}
-</style>
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.25rem; }
+            .box a { padding: 18px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="background-container">
-  <img src="https://ik.imagekit.io/8v5m0fw9z/Gemini_Generated_Image_vnsgdkvnsgdkvnsg.png" alt="Holi Background">
-  <div class="overlay"></div>
-</div>
-
-<div class="content-wrapper">
-  <div class="glass-card">
-    <div class="status-dot"></div>
-    <h1>WE ARE<br><span class="highlight">BACK SOON</span></h1>
-    <p>This website is currently under construction.<br>We are working hard to bring you something amazing.</p>
-    <div class="brand-footer">
-      <strong>© 2026 Subhadip Cyber Technologyᵀᴹ. All rights reserved.</strong>
+    <div class="logo-wrapper">
+        <div class="logo-circle">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop,q=95/OgmSnBJxNUqk7ef2/ff-ac71aa02918f0be4e8b5a017beea0790-ff-untitled-design-gXCy15oy0IitY3zp.png" alt="SCT">
+        </div>
     </div>
-  </div>
-</div>
+
+    <h1>Subhadip Cyber Technology</h1>
+
+    <div class="container">
+         <div class="box">
+            <a href="https://subhadiptech.gtiweb.in/">
+                New Website
+                <span class="sub-text">Click here</span>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="#">
+                About Us
+                <span class="sub-text">Our tech & vision</span>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="contact.html">
+                Contact Support
+                <span class="sub-text">Get expert assistance</span>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="#">
+                Portfolio
+                <span class="sub-text">View our latest projects</span>
+            </a>
+        </div>
+    </div>
 
 </body>
 </html>
